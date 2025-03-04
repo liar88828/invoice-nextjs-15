@@ -1,18 +1,18 @@
 'use client'
 import React from 'react';
-import type { Products } from "@prisma/client";
+import type { Customers } from "@prisma/client";
 import { TrashIcon } from "lucide-react";
-import { productDeleteAction } from "@/action/product";
-import { Update } from "@/app/products/update";
+import { customerDeleteAction } from "@/action/customer";
+import { Update } from "@/app/customers/update";
 import toast from "react-hot-toast";
 
-export function Table({ products }: { products: Products[] }) {
-    const onDelete = async (productId: number) => {
+export function Table({ customers }: { customers: Customers[] }) {
+    const onDelete = async (customerId: number) => {
         if (confirm('Are you sure?')) {
             try {
                 // console.log('delete id :' + product.id)
-                await productDeleteAction(productId)
-                toast.success('Product deleted')
+                await customerDeleteAction(customerId)
+                toast.success('Customer deleted')
             } catch (e) {
                 if (e instanceof Error) {
                     toast.error(e.message)
@@ -27,30 +27,30 @@ export function Table({ products }: { products: Products[] }) {
                 <thead>
                 <tr className="uppercase text-sm">
                     {/*<th>select</th>*/ }
-                    <th>Nama Produk</th>
-                    <th>Harga</th>
-                    <th>Jumlah</th>
-                    <th>Keterangan</th>
+                    <th>Nama Customer</th>
+                    <th>Telephone</th>
+                    <th>Kota</th>
+                    <th>Alamat</th>
                     <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
                 {/*v-for="(prod, index) in products" :key="index"*/ }
-                { products.map(product => (
+                { customers.map(customer => (
                     <tr
-                        key={ product.id }
+                        key={ customer.id }
                         className="hover:bg-base-200">
                         {/*<td> </td>*/ }
-                        <td>{ product.nama } </td>
-                        <td>{ product.harga } </td>
-                        <td>{ product.jumlah } </td>
-                        <td>{ product.keterangan } </td>
+                        <td>{ customer.nama } </td>
+                        <td>{ customer.tlp } </td>
+                        <td>{ customer.kota } </td>
+                        <td>{ customer.alamat } </td>
                         <td>
                             <div className="flex gap-2">
                                 <button
-                                    onClick={ () => onDelete(product.id) }
+                                    onClick={ () => onDelete(customer.id) }
                                     className="btn btn-error btn-square"><TrashIcon/></button>
-                                <Update product={ product }/>
+                                <Update customer={ customer }/>
                             </div>
                         </td>
                     </tr>

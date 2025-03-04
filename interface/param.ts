@@ -9,6 +9,7 @@ export type TContext = {
         page: string,
         limit: string,
         price: string,
+        kota: string
 
     }>,
     params: Promise<{ id: string, search: string, route: string }>

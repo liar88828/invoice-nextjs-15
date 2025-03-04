@@ -75,7 +75,7 @@ export async function productCreateAction(product: ProductForms) {
     return response
 }
 
-export async function deleteProductAction(productId: number) {
+export async function productDeleteAction(productId: number) {
     // const isFound=await
     const response = await prisma.products.delete({ where: { id: productId } })
     if (!response) {
