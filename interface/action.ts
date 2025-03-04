@@ -1,0 +1,1 @@
+export type GetProductParam ={ page: number, search: string, limit: number, name: string, price: string }

@@ -5,6 +5,7 @@ import React from "react";
 import Link from "next/link";
 import { BoxIcon, CaptionsIcon, HomeIcon, UserIcon } from "lucide-react";
 import Image from "next/image";
+import { Toaster } from "react-hot-toast";
 
 export function Navbar() {
     return (
@@ -95,7 +96,7 @@ export default function MainLayout({ children }: Readonly<{ children: React.Reac
                     </Link>
                 </div>
             </div>
+            <Toaster position={'top-right'}/>
         </>
-
     );
 }
