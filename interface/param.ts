@@ -10,7 +10,27 @@ export type TContext = {
         limit: string,
         price: string,
         kota: string
+        startDate: string,
+        endDate: string,
+        productSearch: string,
+        customerSearch: string
 
     }>,
-    params: Promise<{ id: string, search: string, route: string }>
+    params: Promise<{
+        id: string,
+        route: string
+    }>
 }
+
+export type ResponseAction<T = never> = Promise<{
+    message: string,
+    status: boolean,
+    error?: string | string[],
+    data?: T,
+    meta?: {
+        currentPage: number
+        pageSize: number
+        totalPages: number
+        totalCount: number
+    }
+}>;

@@ -1,7 +1,6 @@
 'use client'
 import React from 'react';
 import { PlusIcon } from "lucide-react";
-import { productCreateAction } from "@/action/product";
 import toast from "react-hot-toast";
 import { useCustomerStore } from "@/store/customer";
 import { customerCreateAction } from "@/action/customer";
@@ -32,9 +31,7 @@ export function Create() {
             if (err instanceof Error) {
                 // console.log(err.message)
                 toast.success(err.message)
-
             }
-
         }
     }
 

@@ -16,3 +16,18 @@ export async function getContextQueryNum({ searchParams }: TContext, text: keyof
     return 1
 }
 
+export async function getId({ params }: TContext) {
+    const param = await params
+    if (param) {
+        return param.id
+    }
+    return ''
+}
+
+export async function getIdNum({ params }: TContext) {
+    const param = await params
+    if (param) {
+        return Number(param.id)
+    }
+    return 0
+}

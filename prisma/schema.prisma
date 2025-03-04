@@ -9,33 +9,29 @@ datasource db {
 }
 
 model Customers {
-    id                Int                 @id @default(autoincrement())
-    nama              String
-    alamat            String
-    kota              String
-    tlp               String
-    Invoice_customers Invoice_customers[]
+    id     Int    @id @default(autoincrement())
+    nama   String
+    alamat String
+    kota   String
+    tlp    String
 }
 
 model Invoice_customers {
-    id          Int       @id @default(autoincrement())
-    nama        String
-    alamat      String
-    kota        String
-    tlp         String
-    Invoices    Invoices  @relation(fields: [invoicesId], references: [id])
-    invoicesId  Int       @unique
-    Customers   Customers @relation(fields: [customersId], references: [id])
-    customersId Int
+    id         Int      @id @default(autoincrement())
+    nama       String
+    alamat     String
+    kota       String
+    tlp        String
+    Invoices   Invoices @relation(fields: [invoicesId], references: [id])
+    invoicesId Int      @unique
 }
 
 model Products {
-    id               Int                @id @default(autoincrement())
-    nama             String
-    keterangan       String
-    harga            Int
-    jumlah           Int
-    Invoice_products Invoice_products[]
+    id         Int    @id @default(autoincrement())
+    nama       String
+    keterangan String
+    harga      Int
+    jumlah     Int
 }
 
 model Invoice_products {
@@ -46,8 +42,6 @@ model Invoice_products {
     jumlah     Int
     invoicesId Int
     Invoices   Invoices @relation(fields: [invoicesId], references: [id])
-    productsId Int
-    Products   Products @relation(fields: [productsId], references: [id])
 }
 
 model Invoices {

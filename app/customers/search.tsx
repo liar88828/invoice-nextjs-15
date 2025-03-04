@@ -32,7 +32,7 @@ export function Search({ children, city }: { city: string[], children: React.Rea
         );
         console.log(data);
         router.push(`/customers?${ data }`);
-    }, [ debouncedParams ]); // ✅ Runs when `debouncedParams` changes
+    }, [ debouncedParams, router ]); // ✅ Runs when `debouncedParams` changes
 
     return (<>
 

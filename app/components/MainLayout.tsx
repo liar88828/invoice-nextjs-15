@@ -14,7 +14,7 @@ export function Navbar() {
             <div className="drawer-content flex flex-col">
                 <div className="navbar bg-base-300 w-full">
                     <div className="mx-2 flex-1 px-2">
-                        <Image src="vercel.svg"
+                        <Image src="/vercel.svg"
                                width={ 500 }
                                height={ 500 }
                                alt="logo" className="size-12"/>

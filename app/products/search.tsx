@@ -32,7 +32,7 @@ export function Search({ children }: { children: React.ReactNode }) {
         );
         console.log(data);
         router.push(`/products?${ data }`);
-    }, [ debouncedParams ]); // ✅ Runs when `debouncedParams` changes
+    }, [ router, debouncedParams ]); // ✅ Runs when `debouncedParams` changes
 
     return (<>
 
